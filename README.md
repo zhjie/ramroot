@@ -4,7 +4,7 @@
 2. ramdisk.sh prepares root_fs. gen_initramfs-ARCH.sh packages new initramfs.img with the new init file.
 3. MUST configure exclusions properly in _mount_dir@ramdisk, and make sure /mnt/.ramdisk is less than half your memory size.
 ```bash
-rsync -a /$1/ /mnt/.ramdisk/$1 --exclude src --exclude cache --exclude db --exclude firmware --exclude portage --exclude python3.11 --exclude python --exclude llvm --exclude repos --exclude binpkgs --exclude distfiles
+rsync -a /$1/ /mnt/.ramdisk/$1 --exclude src --exclude cache --exclude db --exclude portage --exclude python --exclude llvm --exclude repos --exclude binpkgs --exclude distfiles
 ```
 3. /etc/genkernel.conf is with SYMLINK="yes".
 4. Kernel is compiled by genkernel with "Support initial ramdisk/ramfs compressed using XZ".
