@@ -7,7 +7,7 @@ rsync -a /$1/ /mnt/.ramdisk/$1 --exclude src --exclude cache --exclude db --excl
 ```
 3. /etc/genkernel.conf is with SYMLINK="yes".
 4. Kernel is compiled by genkernel with "Support initial ramdisk/ramfs compressed using XZ".
-5. The init file is modified from genkernel-linuxrc. It simply creates a tmpfs-based /ram_chroot synced from /mnt/.ramdisk/, and umount real_root before booting the real init via switch_root.
+5. The init file is modified from /usr/share/genkernel/defaults/linuxrc. It simply creates a tmpfs-based /ram_chroot synced from /mnt/.ramdisk/, and umount real_root before booting the real init via switch_root.
 ```bash
 mkdir /ram_chroot
 mount -t tmpfs -o rw,noatime none /ram_chroot
