@@ -1,6 +1,6 @@
 # ramroot for gentoo via initramfs
 
-1. READ and CHANGE ramdisk and gen_initramfs before deploying. This is just a script I made for myself, not a fully developed software.
+1. READ and CHANGE ramdisk and gen_initramfs-ARCH.sh before deploying. This is just a script I made for myself, not a fully developed software.
 2. /etc/genkernel.conf is with SYMLINK="yes".
 3. Kernel is compiled by genkernel with "Support initial ramdisk/ramfs compressed using XZ".
 4. MUST configure exclusions in _mount_dir@ramdisk, and make sure /mnt/.ramdisk is less than half your memory size.
