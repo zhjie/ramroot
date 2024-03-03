@@ -5,7 +5,7 @@
 3. Kernel is compiled by genkernel with "Support initial ramdisk/ramfs compressed using XZ".
 4. MUST configure exclusions properly in _mount_dir@ramdisk, and make sure /mnt/.ramdisk is less than half your memory size.
 ```bash
-rsync -a /$1/ /mnt/.ramdisk/$1 --exclude modules --exclude src --exclude cache --exclude db --exclude firmware --exclude portage --exclude python3.11 --exclude python --exclude llvm --exclude repos --exclude binpkgs --exclude distfiles
+rsync -a /$1/ /mnt/.ramdisk/$1 --exclude src --exclude cache --exclude db --exclude firmware --exclude portage --exclude python3.11 --exclude python --exclude llvm --exclude repos --exclude binpkgs --exclude distfiles
 ```
 6. The init file is modified from genkernel-linuxrc. It simply creates a tmpfs-based /ram_chroot synced from /mnt/.ramdisk/, and umount real_root before booting the real init via switch_root.
 ```bash
