@@ -1,7 +1,8 @@
 # ramroot for gentoo via initramfs
 
 1. READ and CHANGE ramdisk.sh and gen_initramfs-ARCH.sh before deploying. This is just a script I made for myself, not a fully developed software.
-2. MUST configure exclusions properly in _mount_dir@ramdisk, and make sure /mnt/.ramdisk is less than half your memory size.
+2. ramdisk.sh prepares root_fs. gen_initramfs-ARCH.sh packages new initramfs.img with the new init file.
+3. MUST configure exclusions properly in _mount_dir@ramdisk, and make sure /mnt/.ramdisk is less than half your memory size.
 ```bash
 rsync -a /$1/ /mnt/.ramdisk/$1 --exclude src --exclude cache --exclude db --exclude firmware --exclude portage --exclude python3.11 --exclude python --exclude llvm --exclude repos --exclude binpkgs --exclude distfiles
 ```
