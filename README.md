@@ -28,4 +28,4 @@ exec switch_root /ram_chroot "${init}"
 kernel kernel
 initramfs initramfs followkernel
 ```
-8. The script is for Gentoo. But it should work for Archlinux.
+8. The script is for Gentoo. But it should work for Archlinux, if you re-generate init from /usr/lib/initcpio/init and package initramfs with zst.
