@@ -4,11 +4,11 @@
 2. /etc/genkernel.conf is with SYMLINK="yes".
 3. Kernel is compiled by genkernel with "Support initial ramdisk/ramfs compressed using XZ".
 4. MUST configure exclusions in _mount_dir@ramdisk, and make sure /mnt/.ramdisk is less than half your memory size.
-```Bash
+```bash
 rsync -a /$1/ /mnt/.ramdisk/$1 --exclude modules --exclude src --exclude cache --exclude db --exclude firmware --exclude portage --exclude python3.11 --exclude python --exclude llvm --exclude repos --exclude binpkgs --exclude distfiles
 ```
 6. The init file is modified from genkernel-linuxrc. It simply creates a tmpfs-based /ram_chroot synced from /mnt/.ramdisk/, and umount real_root before booting the real init via switch_root.
-```Bash
+```bash
 mkdir /ram_chroot
 mount -t tmpfs -o rw,noatime none /ram_chroot
 cp -a "${CHROOT}"/mnt/.ramdisk/* /ram_chroot/
@@ -24,4 +24,8 @@ exec switch_root /ram_chroot "${init}"
 ```
 7. gen_initramfs-ARCH.sh syncs kernel files from the server, packages the initramfs.img with new init, and deploys to /boot.
 8. config.txt is for raspberry pi.
-9. The script is for Gentoo. But it should work for Archlinux.
+```bash
+kernel kernel
+initramfs initramfs followkernel
+```
+10. The script is for Gentoo. But it should work for Archlinux.
