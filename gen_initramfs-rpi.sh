@@ -18,4 +18,5 @@ xz -d initramfs.xz
 cpio -iF initramfs
 rm initramfs
 cp /root/init ./init
+
 find . -print0 | cpio --quiet --null -o -H newc --owner root:root --force-local | xz -e --check=none -z -f -9 -T 0 > /boot/initramfs
