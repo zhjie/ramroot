@@ -1,6 +1,6 @@
 _mount_dir() {
     if [ $# == 1 ]; then
-        rsync -a /$1/ /mnt/.ramdisk/$1 --exclude modules --exclude src --exclude cache --exclude db --exclude firmware --exclude portage --exclude python3.11 --exclude python --exclude llvm --exclude repos --exclude binpkgs --exclude distfiles
+        rsync -a /$1/ /mnt/.ramdisk/$1 --exclude src --exclude cache --exclude db --exclude firmware --exclude portage --exclude python3.11 --exclude python --exclude llvm --exclude repos --exclude binpkgs --exclude distfiles
     fi
 }
 
