@@ -6,7 +6,7 @@
 ```bash
 rsync -a /$1/ /mnt/.ramdisk/$1 --exclude src --exclude cache --exclude db --exclude portage --exclude python --exclude llvm --exclude repos --exclude binpkgs --exclude distfiles
 ```
-3. /etc/genkernel.conf is with SYMLINK="yes". gen_funcs.sh is for vfat boot.
+3. /etc/genkernel.conf is with SYMLINK="yes". /usr/share/genkernel/gen_funcs.sh is for vfat boot.
 4. Kernel is compiled by genkernel with "Support initial ramdisk/ramfs compressed using XZ".
 5. The init file is modified from /usr/share/genkernel/defaults/linuxrc. It simply creates a tmpfs-based /ram_chroot synced from /mnt/.ramdisk/, and umount real_root before booting the real init via switch_root.
 ```bash
